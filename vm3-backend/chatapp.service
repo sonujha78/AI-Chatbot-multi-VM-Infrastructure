@@ -1,0 +1,13 @@
+[Unit]
+Description=ChatApp FastAPI Backend
+After=network.target ollama.service
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/chatapp
+ExecStart=/home/ubuntu/chatapp/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
